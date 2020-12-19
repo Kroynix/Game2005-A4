@@ -21,8 +21,14 @@ public class RigidBody3D : MonoBehaviour
 
     [Header("Attributes")]
     public Vector3 velocity;
+    public Vector3 velocityleft;
+    public Vector3 velocityright;
+    public Vector3 velocityforward;
+    public Vector3 velocitybackward;
     public Vector3 acceleration;
     private float gravity;
+    public Vector3 pos;
+
 
     // Start is called before the first frame update
     void Start()
@@ -66,12 +72,11 @@ public class RigidBody3D : MonoBehaviour
         isFalling = false;
     }
 
-
     public void addForceleft()
     {
         if (this.gameObject.tag != "Player")
         {
-            transform.position += velocityleft;
+            transform.position += Vector3.left;
             Debug.Log(transform.position);
         }
     }
@@ -79,7 +84,7 @@ public class RigidBody3D : MonoBehaviour
     {
         if (this.gameObject.tag != "Player")
         {
-            transform.position += velocityright;
+            transform.position += Vector3.right;
             Debug.Log(transform.position);
         }
     }
@@ -87,7 +92,7 @@ public class RigidBody3D : MonoBehaviour
     {
         if (this.gameObject.tag != "Player")
         {
-            transform.position += velocityforward;
+            transform.position += Vector3.forward;
             Debug.Log(transform.position);
         }
     }
@@ -95,7 +100,7 @@ public class RigidBody3D : MonoBehaviour
     {
         if (this.gameObject.tag != "Player")
         {
-            transform.position += velocitybackward;
+            transform.position += Vector3.back;
             Debug.Log(transform.position);
         }
     }
